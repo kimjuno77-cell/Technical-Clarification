@@ -54,7 +54,12 @@
         }
         
         @media print {
-            body { background-color: #ffffff; }
+            body, html { 
+                background-color: #ffffff; 
+                height: auto !important; 
+                overflow: visible !important;
+                display: block !important;
+            }
             .print-container { 
                 max-width: 100%; 
                 margin: 0; 
@@ -73,7 +78,13 @@
             .no-print { display: none !important; }
             
             #sidebar, #topbar { display: none !important; }
-            #main-content { margin-left: 0 !important; width: 100% !important; }
+            #main-content { 
+                margin-left: 0 !important; 
+                width: 100% !important; 
+                height: auto !important;
+                overflow: visible !important;
+                position: static !important;
+            }
         }
 
         .tc-table {
