@@ -2,15 +2,14 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebas
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
 import { getFirestore, collection, addDoc, getDocs, doc, getDoc, updateDoc, query, orderBy } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
 
-// TODO: Replace this with your actual Firebase Project Configuration!
-// You can get this from Firebase Console -> Project Settings
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyD0tYLUMbM16hBPlwFHrRIrUZsRsGjL_qU",
+  authDomain: "technical-clarification.firebaseapp.com",
+  projectId: "technical-clarification",
+  storageBucket: "technical-clarification.firebasestorage.app",
+  messagingSenderId: "75688244720",
+  appId: "1:75688244720:web:781e2944c7aad87156d935",
+  measurementId: "G-PG1CWBLV78"
 };
 
 // Initialize Firebase (wrapped in try-catch to prevent crash if config is missing)
