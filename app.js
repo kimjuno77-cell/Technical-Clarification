@@ -84,12 +84,12 @@ if (isFirebaseConfigured) {
 
     onAuthStateChanged(auth, (user) => {
         if (user) {
-            // 이메일 도메인 검사 (@emko.com 만 허용)
-            if (!user.email.endsWith('@emko.com')) {
-                alert("EMKO 회사 이메일(@emko.com) 계정으로만 접근이 가능합니다.");
-                signOut(auth); // 강제 로그아웃
-                return;
-            }
+            // [테스트를 위해 임시 해제됨] 이메일 도메인 검사 (@emko.com 만 허용)
+            // if (!user.email.endsWith('@emko.com')) {
+            //     alert("EMKO 회사 이메일(@emko.com) 계정으로만 접근이 가능합니다.");
+            //     signOut(auth); // 강제 로그아웃
+            //     return;
+            // }
             currentUser = user;
             updateUIBasedOnAuth();
             fetchDocuments();
