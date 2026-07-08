@@ -83,11 +83,19 @@ if (isFirebaseConfigured) {
     });
 
     onAuthStateChanged(auth, (user) => {
-        currentUser = user;
-        updateUIBasedOnAuth();
         if (user) {
+            // 이메일 도메인 검사 (@emko.com 만 허용)
+            if (!user.email.endsWith('@emko.com')) {
+                alert("EMKO 회사 이메일(@emko.com) 계정으로만 접근이 가능합니다.");
+                signOut(auth); // 강제 로그아웃
+                return;
+            }
+            currentUser = user;
+            updateUIBasedOnAuth();
             fetchDocuments();
         } else {
+            currentUser = null;
+            updateUIBasedOnAuth();
             docList.innerHTML = '<div class="text-center text-sm text-slate-500 mt-10">로그인하여<br>문서를 불러오세요.</div>';
         }
     });
