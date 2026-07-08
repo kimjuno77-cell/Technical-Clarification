@@ -70,7 +70,7 @@ if (isFirebaseConfigured) {
             await signInWithPopup(auth, provider);
         } catch (error) {
             console.error("Login failed:", error);
-            alert("로그인 중 오류가 발생했습니다.");
+            alert("로그인 중 오류가 발생했습니다.\n\n[상세 에러 내용]\n" + error.code + "\n" + error.message);
         }
     });
 
