@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Clarification Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar / Editor -->
+        <aside class="editor-panel no-print">
+            <div class="header">
+                <h1>TC Generator</h1>
+                <div class="actions">
+                    <button id="btn-print" class="btn btn-primary">Export to PDF</button>
+                    <button id="btn-clear" class="btn btn-secondary">Clear All</button>
+                </div>
+            </div>
+
+            <form id="tc-form" class="form-container">
+                <div class="form-group">
+                    <label for="f-project">Project Name</label>
+                    <input type="text" id="f-project" placeholder="e.g. OHTL 380kV Project" />
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="f-to">To (Company)</label>
+                        <input type="text" id="f-to" placeholder="Client or Contractor Name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="f-attn">Attn (Person)</label>
+                        <input type="text" id="f-attn" placeholder="Attention Name" />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="f-from">From</label>
+                        <input type="text" id="f-from" placeholder="Your Company / Name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="f-date">Date</label>
+                        <input type="date" id="f-date" />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="f-tc-no">TC Number</label>
+                        <input type="text" id="f-tc-no" placeholder="TC-001" />
+                    </div>
+                    <div class="form-group">
+                        <label for="f-ref-no">Your Ref / Reply To</label>
+                        <input type="text" id="f-ref-no" placeholder="Optional" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="f-subject">Subject</label>
+                    <input type="text" id="f-subject" placeholder="Clarification regarding..." />
+                </div>
+
+                <div class="form-group">
+                    <label for="f-references">Reference Documents</label>
+                    <textarea id="f-references" rows="3" placeholder="List any drawings, specs, or standards..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="f-description">Description of Inquiry / Clarification</label>
+                    <textarea id="f-description" rows="6" placeholder="Describe the issue or clarification needed..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="f-proposal">Proposed Solution / Recommendation</label>
+                    <textarea id="f-proposal" rows="6" placeholder="Provide your recommendation..."></textarea>
+                </div>
+            </form>
+        </aside>
+
+        <!-- Preview Area -->
+        <main class="preview-panel">
+            <div class="document-page" id="document-preview">
+                <div class="doc-header">
+                    <h2>TECHNICAL CLARIFICATION</h2>
+                    <div class="doc-logo-placeholder">LOGO</div>
+                </div>
+                
+                <table class="doc-meta-table">
+                    <tr>
+                        <th width="15%">Project:</th>
+                        <td width="35%" id="p-project"></td>
+                        <th width="15%">TC No:</th>
+                        <td width="35%" id="p-tc-no"></td>
+                    </tr>
+                    <tr>
+                        <th>To:</th>
+                        <td id="p-to"></td>
+                        <th>Date:</th>
+                        <td id="p-date"></td>
+                    </tr>
+                    <tr>
+                        <th>Attn:</th>
+                        <td id="p-attn"></td>
+                        <th>Ref No:</th>
+                        <td id="p-ref-no"></td>
+                    </tr>
+                    <tr>
+                        <th>From:</th>
+                        <td id="p-from" colspan="3"></td>
+                    </tr>
+                    <tr>
+                        <th>Subject:</th>
+                        <td id="p-subject" colspan="3" class="subject-text"></td>
+                    </tr>
+                </table>
+
+                <div class="doc-section">
+                    <h3>1. Reference Documents</h3>
+                    <div id="p-references" class="content-text"></div>
+                </div>
+
+                <div class="doc-section">
+                    <h3>2. Description of Inquiry / Clarification Needed</h3>
+                    <div id="p-description" class="content-text"></div>
+                </div>
+
+                <div class="doc-section">
+                    <h3>3. Proposed Solution / Recommendation</h3>
+                    <div id="p-proposal" class="content-text"></div>
+                </div>
+
+                <div class="doc-signatures">
+                    <div class="sig-box">
+                        <p>Prepared By (Contractor/Vendor)</p>
+                        <div class="sig-line"></div>
+                        <p>Name:</p>
+                        <p>Date:</p>
+                    </div>
+                    <div class="sig-box">
+                        <p>Approved By (Client/Engineer)</p>
+                        <div class="sig-line"></div>
+                        <p>Name:</p>
+                        <p>Date:</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+:root {
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --bg-color: #f3f4f6;
+    --panel-bg: #ffffff;
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+    --border-color: #e5e7eb;
+    --border-focus: #3b82f6;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.5;
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Sidebar / Editor Styles */
+.editor-panel {
+    width: 400px;
+    background-color: var(--panel-bg);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+    z-index: 10;
+}
+
+.header {
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+    background-color: #f8fafc;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+
+.header h1 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #0f172a;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex: 1;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn-secondary {
+    background-color: #e2e8f0;
+    color: #475569;
+}
+
+.btn-secondary:hover {
+    background-color: #cbd5e1;
+}
+
+.form-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.form-group input, 
+.form-group textarea {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Preview Panel Styles */
+.preview-panel {
+    flex: 1;
+    overflow-y: auto;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    background-color: #94a3b8; /* Darker background to contrast paper */
+}
+
+/* A4 Paper Simulation */
+.document-page {
+    width: 210mm;
+    min-height: 297mm;
+    background: white;
+    padding: 20mm;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    margin: 0 auto;
+    position: relative;
+}
+
+.doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #1e293b;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.doc-header h2 {
+    font-size: 1.5rem;
+    color: #1e293b;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.doc-logo-placeholder {
+    width: 100px;
+    height: 40px;
+    background-color: #f1f5f9;
+    border: 1px dashed #cbd5e1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+.doc-meta-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    font-size: 0.9rem;
+}
+
+.doc-meta-table th, 
+.doc-meta-table td {
+    border: 1px solid #cbd5e1;
+    padding: 8px 12px;
+    text-align: left;
+}
+
+.doc-meta-table th {
+    background-color: #f8fafc;
+    color: #475569;
+    font-weight: 600;
+}
+
+.doc-meta-table td {
+    color: #0f172a;
+}
+
+.subject-text {
+    font-weight: 600;
+}
+
+.doc-section {
+    margin-bottom: 25px;
+}
+
+.doc-section h3 {
+    font-size: 1.1rem;
+    color: #1e293b;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.content-text {
+    font-size: 0.95rem;
+    white-space: pre-wrap; /* Preserves line breaks from textarea */
+    color: #334155;
+    min-height: 40px; /* Ensure space even if empty */
+}
+
+.doc-signatures {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+}
+
+.sig-box {
+    width: 45%;
+    font-size: 0.9rem;
+}
+
+.sig-line {
+    border-bottom: 1px solid #000;
+    height: 60px;
+    margin-bottom: 5px;
+}
+
+.sig-box p {
+    margin-bottom: 5px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .app-container {
+        flex-direction: column;
+    }
+    .editor-panel {
+        width: 100%;
+        height: 50vh;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .preview-panel {
+        height: 50vh;
+        padding: 20px;
+    }
+    .document-page {
+        width: 100%; /* Fit screen on mobile */
+        max-width: 210mm;
+        min-height: auto;
+    }
+}
+
+/* Print Styles */
+@media print {
+    @page {
+        size: A4;
+        margin: 0;
+    }
+    body, .app-container {
+        height: auto;
+        overflow: visible;
+        background-color: white;
+    }
+    .no-print {
+        display: none !important;
+    }
+    .preview-panel {
+        padding: 0;
+        background-color: transparent;
+        display: block;
+    }
+    .document-page {
+        box-shadow: none;
+        margin: 0;
+        width: 100%;
+        padding: 20mm;
+    }
+}
